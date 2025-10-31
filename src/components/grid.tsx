@@ -1,30 +1,23 @@
 'use client'
-import { useEffect, useState } from "react";
+import useFetcher from '../../utils/fetcher';
+import Card from './card';
 
 const Grid =  () => {
 
 
-    const [data, setData] = useState([])
-    const [isLoaing, setIsLoading] = useState(false)
+    const {data, isLoaing} = useFetcher("/data.json")
 
 
-    useEffect(()=>{
-        const fetchData = async ()=>{
-            setIsLoading(true)
-            await fetch("/data.json")
-            .then((res)=>res.json())
-            .then((result)=>setData(result))
-            .catch((error)=> console.error(error))
-            .finally(()=>setIsLoading(false))
-
-        }
-        fetchData()
-    },[])
-
-    if(isLoaing) return <div className="">Loading</div>
+    if(isLoaing) return <div className="">Loading....</div>
     
     return (
-        <div className="">{JSON.stringify(data)}fdfdf</div>
+      <ul className=''>
+        {data.map((product)=>{
+            return (
+                <Card {...product}/>
+            )
+        })}
+      </ul>
     );
 }
  

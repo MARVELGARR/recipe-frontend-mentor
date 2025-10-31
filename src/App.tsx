@@ -1,5 +1,6 @@
 
 import './App.css'
+import Cart from './components/cart'
 import Grid from './components/grid'
 
 function App() {
@@ -8,7 +9,7 @@ function App() {
   return (
     <div className="">
       <div className="">
-        ssssssssssssssss
+
         <section className=''>
           <h1 className=''>Desert</h1>
           
@@ -16,7 +17,9 @@ function App() {
 
         </section>
 
-        <section className=''></section>
+        <section className=''>
+          <Cart/>
+        </section>
 
       </div>
     </div>
