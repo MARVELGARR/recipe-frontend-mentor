@@ -10,11 +10,13 @@ const Grid =  () => {
 
     if(isLoaing) return <div className="">Loading....</div>
     
+  
     return (
       <ul className='grid_parent'>
-        {data.map((product)=>{
+        {data.map((product,index)=>{
+          const EditedData = {...product, id: index}
             return (
-                <Card key={product.name} {...product}/>
+                <Card key={index} {...EditedData }/>
             )
         })}
       </ul>

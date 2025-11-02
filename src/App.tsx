@@ -1,5 +1,5 @@
 
-import './App.css'
+import './App.scss'
 import Cart from './components/cart'
 import Grid from './components/grid'
 import {MyCartProvider} from "../context/cartContext"
@@ -19,7 +19,7 @@ function App() {
 
         </section>
 
-        <section className=''>
+        <section className='cart_section'>
           <Cart/>
         </section>
 

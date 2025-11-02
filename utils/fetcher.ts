@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 type category = "Waffle" | "Crème Brûlée" | "Macaron" | "Tiramisu" | "Baklava" | "Pie" | "Cake" | "Brownie" | "Panna Cotta"
 export type  ApiRes =    {
+    id:number,
        image: {
             thumbnail: string,
             mobile: string,

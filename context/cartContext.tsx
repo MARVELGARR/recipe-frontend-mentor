@@ -1,6 +1,6 @@
 import { createContext,  useContext, useState, type ReactNode } from "react";
 
-type CartType = {
+export type CartType = {
   id: number;
   thumnail: string;
   name: string;
@@ -29,6 +29,7 @@ export const MyCartProvider = ({ children }: { children: ReactNode }) => {
           i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
         );
       }
+      console.log("new")
       return [...prev, { ...item, quantity: 1 }];
     });
   };

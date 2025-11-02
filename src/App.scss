@@ -1,0 +1,168 @@
+// ====================== 🎨 Colors ======================
+$color-red: hsl(14, 86%, 42%);
+$color-green: hsl(159, 69%, 38%);
+
+$color-rose-50: hsl(20, 50%, 98%);
+$color-rose-100: hsl(13, 31%, 94%);
+$color-rose-300: hsl(14, 25%, 72%);
+$color-rose-400: hsl(7, 20%, 60%);
+$color-rose-500: hsl(12, 20%, 44%);
+$color-rose-900: hsl(14, 65%, 9%);
+
+// ====================== ✍️ Typography ======================
+$font-family-base: "Red Hat Text", "Arial", sans-serif;
+$font-size-body: 16px;
+
+// ====================== 📏 Spacing ======================
+$spacing-unit: 1em;
+
+@font-face {
+  font-family: "Red Hat Text";
+  src: url("/fonts/static/RedHatText-Bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: bolder;
+}
+@font-face {
+  font-family: "Red Hat Text";
+  src: url("/fonts/static/RedHatText-SemiBold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Red Hat Text";
+  src: url("/fonts/static/RedHatText-Regular.ttf") format("truetype");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Red Hat Text";
+  src: url("/fonts/RedHatText-Italic-VariableFont_wght.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+.main_container {
+  display: flex;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-top: 2em;
+  background-color: $color-rose-100;
+  .grid_section {
+    width: 70%;
+    h1 {
+      margin-left: 2.3rem;
+      font-weight: bolder;
+      color: $color-rose-900;
+    }
+  }
+  .cart_section {
+    flex: 1;
+    background-color: red;
+  }
+}
+
+.grid_parent {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 200px));
+  font-size: $font-size-body;
+  gap: 2em;
+
+  li {
+    list-style: none;
+    line-height: 1em;
+    ;
+    .price_container {
+      margin-top: 1.7em;
+      :nth-child(1) {
+        color: $color-rose-300;
+      }
+      :nth-child(2) {
+        color: $color-rose-900;
+        font-weight: bolder;
+      }
+      :last-child {
+        color: $color-red;
+        font-weight: bold;
+      }
+    }
+  }
+  .img_container {
+    position: relative;
+    img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    button {
+      margin-top: 0.5em;
+      width: 70%;
+      background-color: $color-rose-50;
+      border-color: $color-rose-300;
+      border-radius: 3em;
+      display: flex;
+      cursor: pointer;
+      justify-content: center;
+      align-items: center;
+      gap: 1em;
+      cursor: pointer;
+      padding:0.5em 0 0.5em 0 ;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -15px;
+
+      p {
+        color: $color-rose-900;
+        font-weight: bold;
+        margin: 0;
+      }
+      img {
+        width: 1.2em;
+        height: 1.2em;
+      }
+    }
+    button.cont_button{
+      background-color: $color-red;
+      border-color: $color-red;
+      display: flex;
+      justify-content: space-between;
+      cursor: no-pointer;
+      p{
+        color: white;
+      }
+      img{
+        border: 1px solid white;
+        border-radius: 100%;
+        padding: 3px;
+        margin: auto;
+      }
+    }
+    
+  }
+}
+
+// ====================== 📱 Media Queries ======================
+@media screen and (max-width: 768px) {
+  .img_desktop,
+  .img_tablet {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .img_mobile,
+  .img_desktop {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .img_tablet {
+    display: none;
+  }
+
+  .img_desktop {
+    display: block;
+  }
+}
