@@ -28,7 +28,6 @@ const useFetcher = (route: string) => {
 
     const [data, setData] = useState<ApiRes[]>(persistaer.get("data"))
     const [isLoaing, setIsLoading] = useState(false)
-
     
 
 
