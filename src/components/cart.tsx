@@ -1,4 +1,5 @@
 import { useCart } from "../../context/cartContext";
+import ConfirmDialog from "./confirm_dialog";
 
 const Cart = () => {
 
@@ -45,6 +46,7 @@ const Cart = () => {
                     <p className="">Your added items will appear here</p>
                 </div>
             )}
+            <ConfirmDialog/>
         </div>
     );
 }

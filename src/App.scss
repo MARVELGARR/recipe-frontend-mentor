@@ -241,6 +241,43 @@ body{
   }
 }
 
+
+
+.overlay{
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index:1;
+  .confirm{
+    background-color: $color-rose-100;
+    width: 70%;
+    margin: 20% auto; 
+    padding: 1.5em;
+  }
+  ul{
+    padding: 0;
+    li{
+      list-style: none;
+      :nth-child(1){
+        display: flex;
+        justify-content: space-between;
+        .cancel{
+          width: 16px;
+          height: 13x;
+        }
+      }
+      img{
+        width: 3em;
+        aspect-ratio: 1/1;
+      }
+    }
+  }
+
+}
+
 // ====================== 📱 Media Queries ======================
 @media screen and (max-width: 768px) {
   .img_desktop,

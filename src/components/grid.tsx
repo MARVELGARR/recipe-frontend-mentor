@@ -13,7 +13,7 @@ const Grid =  () => {
   
     return (
       <ul className='grid_parent'>
-        {data.map((product,index)=>{
+        {data?.map((product,index)=>{
           const EditedData = {...product, id: index}
             return (
                 <Card key={index} {...EditedData }/>

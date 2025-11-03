@@ -46,8 +46,8 @@ const useFetcher = (route: string) => {
 
         }
         if(!data){
-
             fetchData()
+
         }
     },[data])
     return {data, isLoaing};
