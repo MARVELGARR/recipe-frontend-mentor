@@ -41,6 +41,11 @@ $spacing-unit: 1em;
   font-style: italic;
 }
 
+body{
+ 
+  background-color: $color-rose-100; 
+}
+
 .main_container {
   display: flex;
   max-width: 1440px;
@@ -57,7 +62,10 @@ $spacing-unit: 1em;
   }
   .cart_section {
     flex: 1;
-    background-color: red;
+    .cart{
+      background-color: white;
+
+    }
   }
 }
 
@@ -66,6 +74,10 @@ $spacing-unit: 1em;
   grid-template-columns: repeat(auto-fill, minmax(100px, 200px));
   font-size: $font-size-body;
   gap: 2em;
+  ul{
+      margin: 0;
+      padding: 0;
+  }
 
   li {
     list-style: none;
@@ -139,6 +151,93 @@ $spacing-unit: 1em;
       }
     }
     
+  }
+}
+
+
+.cart{
+  padding: 0 1.3em 1.3em;
+    h1{
+      color: $color-red;
+      font-weight: bolder;
+
+  }
+  section {
+    padding: 1em 0;
+    ul{
+      
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap:0.1em;
+      li{
+        list-style: none;
+        display: flex;
+        margin-left: 0px;
+        justify-content: space-between;
+        align-items: center;
+        line-height: 20px;
+        p{
+          color: $color-rose-900;
+          font-weight: bold;
+        }
+        .price_cal{
+          display: flex;
+          align-items: center;
+          gap:0.6em; 
+          :nth-child(1) {
+            color: $color-red;
+            font-weight: bold;
+          }
+          :nth-child(2) {
+            color: $color-rose-300;
+          }
+          :nth-child(3) {
+            color: $color-rose-900;
+          }
+        }
+        img{
+          border:  solid $color-rose-100;
+          padding:0.1em;
+          border-radius: 100%;
+          cursor: pointer;
+
+        }
+        img:hover{
+          filter: contrast(0);
+          
+        }
+      }
+    }
+    .order_total{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      :last-child{
+        font-weight: 900;
+        font-size: larger;
+        color: $color-rose-900;
+      }
+    }
+  }
+  button{
+    width: 100%;
+    border-radius: 30px;
+    background-color: $color-red;
+    border-color: $color-rose-100;
+    color: $color-rose-100;
+    height: 2.5em;
+    font-size: 1em;
+    cursor: pointer;
+  }
+  button:hover{
+    background-color: $color-rose-900;
+  }
+  .icon{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
 
