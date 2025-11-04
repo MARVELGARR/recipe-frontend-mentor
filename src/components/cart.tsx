@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useCart } from "../../context/cartContext";
 import ConfirmDialog from "./confirm_dialog";
 
@@ -5,7 +6,16 @@ const Cart = () => {
 
 
     const {cart, removeItem_Id} = useCart()
+    const [isDialog, setIsDialog] = useState(false)
 
+    const handleOpen = () =>{
+        setIsDialog(true)
+    }
+    
+    const handleClose = () =>{
+        console.log("dsd")
+        setIsDialog(false)
+    }
 
 
     const TotalItemQuntity = cart.map((i)=>i.price * i.quantity)
@@ -39,14 +49,14 @@ const Cart = () => {
                     <div className="">Order Total</div>
                     <strong>${totalPrice}</strong>
                 </div>
-                <button className="">Confirm Order</button>
+                <button onClick={handleOpen} className="">Confirm Order</button>
             </section>): (
                 <div className="icon">
                     <img src="/images/illustration-empty-cart.svg" alt="empty cart icon" />
                     <p className="">Your added items will appear here</p>
                 </div>
             )}
-            <ConfirmDialog/>
+         {isDialog && <ConfirmDialog setIsOpen={setIsDialog} />}
         </div>
     );
 }

@@ -1,6 +1,12 @@
+import { useState } from "react";
 import { useCart } from "../../context/cartContext";
 
-const ConfirmDialog = () => {
+
+type ConfirmType ={
+    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const ConfirmDialog: React.FC<ConfirmType> = ({setIsOpen} ) => {
   const { cart, removeItem_Id } = useCart();
   const TotalItemQuntity = cart.map((i) => i.price * i.quantity);
   const totalPrice = TotalItemQuntity.reduce(
@@ -9,15 +15,19 @@ const ConfirmDialog = () => {
     },
     0
   );
+
+  
   return (
-    <div className="overlay">
+    <div className="overlay inactive">
       <div className="confirm">
-        <div className="">
+        <div className="confirm_mark">
           <img
+          
             src="/images/icon-order-confirmed.svg"
             alt="confirm icon"
             className=""
           />
+          <img onClick={() => setIsOpen(false)} src="/images/icon-remove-item.svg" alt="" className="" />
         </div>
         <div className="">
           <h1 className="">Order Confirmed</h1>
@@ -29,21 +39,23 @@ const ConfirmDialog = () => {
               return (
                 <li key={cartItem.id} className="">
                   <div className="">
-                    <div className="">
+                    <div className="img_name">
                       <img
                         src={cartItem.thumnail}
                         alt="confirm order lis item"
                       />
-                      <div className=""></div>
-                      <div className="">
-                        <p className="">{cartItem.name}</p>
+                      <div className="name_cal">
+
+                        <div className="">
+                            <p className="">{cartItem.name}</p>
+                        </div>
+                        <div className="price_cal">
+                            <span className="">{`${cartItem.quantity}x`}</span>{" "}
+                            <span className="">{`@ $${cartItem.price}`}</span>{" "}
+                            <span className="">{`${
+                            cartItem.quantity * cartItem.price
+                            }`}</span>
                       </div>
-                      <div className="price_cal">
-                        <span className="">{`${cartItem.quantity}x`}</span>{" "}
-                        <span className="">{`@ $${cartItem.price}`}</span>{" "}
-                        <span className="">{`${
-                          cartItem.quantity * cartItem.price
-                        }`}</span>
                       </div>
                     </div>
                     <img
@@ -54,17 +66,17 @@ const ConfirmDialog = () => {
                     />
                   </div>
 
+                </li>
+              );
+            })}
+          </ul>
                   <div className="">
                     <div className="order_total">
                       <div className="">Order Total</div>
                       <strong>${totalPrice}</strong>
                     </div>
-                    <button className="">Confirm Order</button>
+                    <button className="">Start New Order</button>
                   </div>
-                </li>
-              );
-            })}
-          </ul>
         </div>
       </div>
     </div>

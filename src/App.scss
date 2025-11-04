@@ -243,6 +243,7 @@ body{
 
 
 
+
 .overlay{
   position: fixed;
   top:0;
@@ -253,30 +254,96 @@ body{
   z-index:1;
   .confirm{
     background-color: $color-rose-100;
-    width: 70%;
+    width: 50%;
     margin: 20% auto; 
     padding: 1.5em;
-  }
-  ul{
-    padding: 0;
-    li{
-      list-style: none;
-      :nth-child(1){
-        display: flex;
-        justify-content: space-between;
-        .cancel{
-          width: 16px;
-          height: 13x;
-        }
-      }
+    border-radius: 10px;
+    height: fit-content;
+    overflow-y: auto;
+    
+    .confirm_mark{
+      display: flex;
+
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
       img{
-        width: 3em;
-        aspect-ratio: 1/1;
+        cursor: pointer;
+
+      }
+      img:hover{
+        filter: contrast(0);
       }
     }
   }
+  ul{
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap:2em;
+
+    li{
+      display: flex;
+      flex-direction: column;
+      gap:3em;
+      list-style: none;
+      font-size: small;
+      :nth-child(1){
+        display: flex;
+        justify-content: space-between;
+        .img_name{
+          display: flex;
+          align-items: center;
+          gap:0.5em;
+        }
+        
+      img{
+        width:3em;
+        height: 3em;
+        border-radius: 5px;
+      }
+        .cancel{
+          width: 16px;
+          height: 13x;
+          cursor: pointer;
+        }
+        .cancel:hover{
+          filter: contrast(0);
+        }
+        .name_cal{
+          display: flex;
+          flex-direction: column;
+          line-height: 0.5em; 
+          
+          .price_cal{
+          display: flex;
+          align-items: center;
+          gap:0.6em; 
+          :nth-child(1) {
+            color: $color-red;
+            font-weight: bold;
+          }
+          :nth-child(2) {
+            color: $color-rose-300;
+          }
+          :nth-child(3) {
+            color: $color-rose-900;
+          }
+        }
+        }
+      }
+    }
+  }
+  .order_total{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 3em;
+    margin-bottom: 2em;
+  }
 
 }
+
 
 // ====================== 📱 Media Queries ======================
 @media screen and (max-width: 768px) {
