@@ -49,6 +49,10 @@ const Cart = () => {
                     <div className="">Order Total</div>
                     <strong>${totalPrice}</strong>
                 </div>
+                <div className="carbon">
+                    <img src="/images/icon-carbon-neutral.svg" alt="carbon-neutral" className="" />
+                    <p className="">This is a <span className="">carbon-neutral</span> delivery</p>
+                </div>
                 <button onClick={handleOpen} className="">Confirm Order</button>
             </section>): (
                 <div className="icon">
