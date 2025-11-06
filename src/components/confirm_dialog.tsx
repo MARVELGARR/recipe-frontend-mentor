@@ -7,7 +7,7 @@ type ConfirmType ={
 }
 
 const ConfirmDialog: React.FC<ConfirmType> = ({setIsOpen} ) => {
-  const { cart, removeItem_Id } = useCart();
+  const { cart, removeItem_Id, clearCart } = useCart();
   const TotalItemQuntity = cart.map((i) => i.price * i.quantity);
   const totalPrice = TotalItemQuntity.reduce(
     (Vaccumulatorlue, currentValue) => {
@@ -16,9 +16,13 @@ const ConfirmDialog: React.FC<ConfirmType> = ({setIsOpen} ) => {
     0
   );
 
+  const handClose = () =>{
+    clearCart()
+    setIsOpen(false)
+  }
   
   return (
-    <div className="overlay inactive">
+    <div className="overlay">
       <div className="confirm">
         <div className="confirm_mark">
           <img
@@ -75,7 +79,7 @@ const ConfirmDialog: React.FC<ConfirmType> = ({setIsOpen} ) => {
                       <div className="">Order Total</div>
                       <strong>${totalPrice}</strong>
                     </div>
-                    <button className="">Start New Order</button>
+                    <button onClick={handClose} className="">Start New Order</button>
                   </div>
         </div>
       </div>

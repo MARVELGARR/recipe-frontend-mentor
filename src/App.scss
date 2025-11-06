@@ -271,8 +271,9 @@ body{
   z-index:1;
   .confirm{
     background-color: $color-rose-100;
-    width: 50%;
-    
+    width: 30%;
+    margin: 0 auto;
+    transform: translateY(50%);
     padding: 1.5em;
     border-radius: 10px;
     height: fit-content;
@@ -284,6 +285,7 @@ body{
       width: 100%;
       justify-content: space-between;
       align-items: center;
+
       img{
         cursor: pointer;
 
@@ -292,6 +294,10 @@ body{
         filter: contrast(0);
       }
     }
+          h1{
+        color: $color-rose-900;
+        font-size: xx-larger;
+      }
   }
   ul{
     padding: 0;
@@ -369,29 +375,56 @@ body{
     display: none;
   }
   .main_container{
-    
+    width: 100%;
+    padding:0;
+    gap:0.2em;
+    margin: 0;
     flex-direction: column;
-    align-items: center;
     .grid_section{
-      width: 100%;
-    }
-    .grid_parent{
-      flex-direction: column;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       align-items: center;
-       grid-template-columns: repeat(auto-fill, minmax(50%, 100%));
-
-      li{
+      
+      width: 100%;
+      h1{
+        margin: 0;
         width: 100%;
-        img{
-          aspect-ratio: 4/3;
+        display: flex;
+        justify-content: center;
+        padding: .2em 0
+      }
+      .grid_parent{
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        display: flex;
+        flex-grow: 1;
+        padding: 0 2em;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0;
+        li{
+
+          width: 100%;
         }
       }
     }
   }
   .cart{
     margin: 0;
-    min-width: 100vw;
+    min-width: 100%;
     padding: 1em 4em;
+    position: fixed;
+    
+    bottom: 0;
+    .confirm{
+      position: fixed;
+      width: 100%;
+      bottom: 12em;
+      
+      height: 90%;
+    }
   }
 }
 
@@ -401,10 +434,26 @@ body{
     display: none;
     
   }
-  .grid_parent{
+    .grid_section{
+      h1{
+        margin: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: .2em 0
+      }
+      .grid_parent{
+        padding: 0 2em;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        width: 100%;
+        li{
 
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  }
+          width: 100%;
+        }
+      }
+    }
 }
 
 @media (min-width: 1024px) {
