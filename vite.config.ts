@@ -10,4 +10,14 @@ export default defineConfig({
       },
     }),
   ],
+  //   css: {
+  //   preprocessorOptions: {
+  //     scss: {
+  //       // Example: Add a global variable or mixin path
+  //       additionalData: `@import "./src/assets/styles/_variables.scss";`,
+  //       // Example: Configure Sass's NodePackageImporter for resolving node_modules imports
+  //       // importers: [new NodePackageImporter()] // Requires `import { NodePackageImporter } from 'sass';`
+  //     },
+  //   },
+  // },
 })

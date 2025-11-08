@@ -11,11 +11,6 @@ const Cart = () => {
     const handleOpen = () =>{
         setIsDialog(true)
     }
-    
-    const handleClose = () =>{
-        console.log("dsd")
-        setIsDialog(false)
-    }
 
 
     const TotalItemQuntity = cart.map((i)=>i.price * i.quantity)
