@@ -1,75 +1,102 @@
-# React + TypeScript + Vite
+# Frontend Mentor - Product list with cart solution
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a solution to the [Product list with cart challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/product-list-with-cart-5MmqLVAp_d). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-Currently, two official plugins are available:
+## Table of contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-## React Compiler
+---
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## Overview
 
-Note: This will impact Vite dev & build performances.
+### The challenge
 
-## Expanding the ESLint configuration
+Users should be able to:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Add items to the cart and remove them  
+- Increase/decrease the number of items in the cart  
+- See an order confirmation modal when they click **"Confirm Order"**  
+- Reset their selections when they click **"Start New Order"**  
+- View the optimal layout for their device’s screen size  
+- See hover and focus states for all interactive elements  
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Screenshot
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+![Screenshot](./screenshot.jpg)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+*Add your own screenshot here. You can use Firefox’s “Take a Screenshot” or another tool of your choice.*
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Links
+
+- **Solution URL:** [https://github.com/MARVELGARR/recipe-frontend-mentor](https://github.com/MARVELGARR/recipe-frontend-mentor)  
+- **Live Site URL:** [https://fronrendproductlist.netlify.app/](https://fronrendproductlist.netlify.app/)
+
+---
+
+## My process
+
+### Built with
+
+- **Semantic HTML5 markup**  
+- **SCSS (Sass)**  
+- **Flexbox**  
+- **CSS Grid**  
+- **Mobile-first workflow**  
+- **[React](https://reactjs.org/)** – JS library  
+- **[Vite](https://vitejs.dev/)** – Build tool  
+- **[TypeScript](https://www.typescriptlang.org/)** – Type-safe JavaScript  
+
+---
+
+### What I learned
+
+This project strengthened my understanding of React, TypeScript, and SCSS architecture. I practiced:
+
+- Setting up a React + TypeScript project with Vite  
+- Managing cart state using React Context and `useReducer`  
+- Organizing and sharing SCSS variables and mixins across components  
+- Implementing responsive layouts using CSS Grid and Flexbox  
+- Handling component-based state updates and UI feedback in React  
+
+#### Example Code Snippets
+
+tsx
+// Cart context reducer example
+const cartReducer = (state: CartType[], action: CartAction): CartType[] => {
+  switch (action.type) {
+    case "ADD_ITEM":
+      return [...state, { ...action.payload, quantity: 1 }];
+    case "REMOVE_ITEM":
+      return state.filter((item) => item.id !== action.payload.id);
+    case "INCREASE_QTY":
+      return state.map((item) =>
+        item.id === action.payload.id
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      );
+    case "DECREASE_QTY":
+      return state.map((item) =>
+        item.id === action.payload.id && item.quantity > 1
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
+      );
+    default:
+      return state;
+  }
+};
+```tsx
